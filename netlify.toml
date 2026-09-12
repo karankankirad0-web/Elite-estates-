@@ -1,0 +1,25 @@
+# Netlify deployment config for Elite Estates.
+#
+# This is a static multi-page Vite build (index.html, admin/login.html,
+# admin/dashboard.html — see vite.config.js). There is no client-side
+# router, so no SPA catch-all redirect is used or needed: each page is a
+# real file in the build output and Netlify serves it directly.
+#
+# Required environment variables (set in Netlify dashboard -> Site
+# configuration -> Environment variables, NOT committed to git):
+#   VITE_SUPABASE_URL
+#   VITE_SUPABASE_ANON_KEY
+#   VITE_ADMIN_EMAILS       (optional — see src/lib/adminAuth.js)
+# Never set a SUPABASE_SERVICE_ROLE_KEY here; this project never uses one.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Keep the admin area out of search engines even if a crawler ignores
+# the page-level <meta name="robots"> tags.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Frame-Options = "DENY"
