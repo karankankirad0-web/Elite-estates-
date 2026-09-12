@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Estates — Find Your Dream Property in Prime Locations</title>
+<meta name="description" content="Elite Estates is a modern real estate platform connecting you with handpicked homes, apartments, and commercial properties in prime locations. Browse, search, and inquire online.">
+<!-- Demo/placeholder canonical URL — replace with the real production domain -->
+<link rel="canonical" href="https://www.eliteestates-demo.example/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#12867C">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elite Estates">
+<meta property="og:title" content="Elite Estates — Find Your Dream Property in Prime Locations">
+<meta property="og:description" content="Browse handpicked homes, apartments, and commercial properties across prime locations. Search, save favorites, and connect with an advisor.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:url" content="https://www.eliteestates-demo.example/">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elite Estates — Find Your Dream Property in Prime Locations">
+<meta name="twitter:description" content="Browse handpicked homes, apartments, and commercial properties across prime locations.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80">
+<!-- Favicon: inline placeholder, replace with a real brand mark -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2312867C'/%3E%3Ctext x='50' y='68' font-size='54' fill='white' text-anchor='middle' font-family='sans-serif' font-weight='600'%3EE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Demo/placeholder structured data — update with verified real business details before production use -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Elite Estates",
+  "description": "Real estate advisory representing residential and commercial properties in prime locations. (Demo business listing.)",
+  "url": "https://www.eliteestates-demo.example/",
+  "telephone": "+1-415-555-0148",
+  "email": "hello@eliteestates.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "44 Harbor View Road, Suite 300",
+    "addressLocality": "Demo City",
+    "addressCountry": "US"
+  }
+}
+</script>
+<style>
+  :root{
+    --white:#ffffff;
+    --canvas:#F5F7F8;
+    --ink:#151A1E;
+    --ink-soft:#5E6672;
+    --ink-mute:#9AA1AC;
+    --teal:#12867C;
+    --teal-deep:#0B5F58;
+    --teal-tint:#E4F2F0;
+    --navy:#12171B;
+    --navy-soft:#1B2226;
+    --danger:#D2483F;
+    --hair:#E7E9EC;
+    --radius-lg:32px;
+    --radius-md:20px;
+    --radius-sm:14px;
+    --shadow-soft:0 20px 50px -22px rgba(18,23,27,0.18);
+    --shadow-card:0 14px 34px -18px rgba(18,23,27,0.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.14;letter-spacing:-0.01em;color:var(--ink);}
+  .container{max-width:1320px;margin:0 auto;padding:0 48px;}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+  body.no-scroll{overflow:hidden;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important;transition-duration:.001ms !important;}}
+  .skip-link{position:absolute;left:-9999px;top:auto;background:var(--teal);color:var(--white);padding:14px 22px;border-radius:0 0 10px 0;z-index:1000;font-size:14px;}
+  .skip-link:focus{left:0;top:0;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+  /* ---------- pill buttons ---------- */
+  .pill{display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 24px;border-radius:999px;font-size:14.5px;font-weight:500;transition:transform .2s ease, box-shadow .2s ease;}
+  .pill:hover{transform:translateY(-1px);}
+  .pill:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+  .pill .circ{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;transition:transform .3s ease;}
+  .pill:hover .circ{transform:rotate(45deg);}
+  .pill-solid{background:var(--teal);color:var(--white);}
+  .pill-solid .circ{background:var(--white);color:var(--teal);}
+  .pill-solid:hover{box-shadow:0 14px 30px -10px rgba(18,134,124,0.55);}
+  .pill-outline{background:var(--white);color:var(--ink);border:1px solid var(--hair);}
+  .pill-outline .circ{background:var(--teal);color:var(--white);}
+  .pill-outline:hover{border-color:var(--teal);}
+  .pill-light{background:rgba(255,255,255,0.94);color:var(--ink);}
+  .pill-light .circ{background:var(--navy);color:var(--white);}
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:200;background:var(--white);padding:22px 0;transition:box-shadow .3s ease;}
+  header.scrolled{box-shadow:0 2px 24px rgba(18,23,27,0.06);}
+  header .container{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:600;font-size:21px;display:flex;align-items:center;gap:8px;}
+  .logo .mark{width:9px;height:9px;border-radius:50%;background:var(--teal);}
+  nav.primary-nav{display:flex;gap:22px;}
+  nav.primary-nav a{font-size:14.5px;color:var(--ink-soft);transition:color .2s ease;padding:4px 0;}
+  nav.primary-nav a:hover{color:var(--ink);}
+  nav.primary-nav a.active{color:var(--ink);font-weight:600;}
+  .header-right{display:flex;align-items:center;gap:14px;}
+  .fav-nav-btn{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;color:var(--ink);flex-shrink:0;transition:border-color .2s;}
+  .fav-nav-btn:hover{border-color:var(--teal);}
+  .fav-nav-btn .fav-count{position:absolute;top:-4px;right:-4px;background:var(--teal);color:#fff;font-size:10px;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;width:24px;flex-shrink:0;}
+  .nav-toggle span{height:2px;background:var(--ink);border-radius:2px;transition:.25s;}
+  #mobileNav{position:fixed;inset:0;background:var(--navy);z-index:300;display:flex;flex-direction:column;padding:100px 30px;gap:22px;transform:translateX(100%);transition:transform .3s ease;}
+  #mobileNav.open{transform:translateX(0);}
+  #mobileNav a, #mobileNav button.mnav-link{color:var(--white);font-family:'Poppins',sans-serif;font-size:22px;text-align:left;}
+  #mobileNav .mnav-close{position:absolute;top:28px;right:28px;color:#fff;font-size:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;}
+  /* ---------- hero ---------- */
+  .hero-section{padding:8px 0 90px;}
+  .hero-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;height:640px;box-shadow:var(--shadow-soft);background:var(--navy);}
+  .hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:heroZoom 1.8s ease forwards;}
+  @keyframes heroZoom{to{transform:scale(1);}}
+  .hero-scrim{position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,14,16,0.72) 0%, rgba(10,14,16,0.18) 42%, rgba(10,14,16,0) 62%);}
+  .hero-content{position:absolute;left:52px;bottom:52px;right:52px;color:var(--white);z-index:2;opacity:0;animation:riseIn .9s ease .2s forwards;}
+  .hero-content h1{color:var(--white);font-size:clamp(38px,4.6vw,56px);font-weight:600;max-width:520px;}
+  .hero-content p{margin:18px 0 26px;font-size:15.5px;line-height:1.7;color:rgba(255,255,255,0.8);max-width:420px;}
+  @keyframes riseIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  .hero-progress{position:absolute;left:52px;bottom:214px;z-index:2;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:13px;opacity:0;animation:riseIn .9s ease .5s forwards;}
+  .hero-progress .bar{width:120px;height:2px;background:rgba(255,255,255,0.28);position:relative;overflow:hidden;border-radius:2px;}
+  .hero-progress .bar span{position:absolute;left:0;top:0;bottom:0;width:34%;background:var(--white);}
+  .hero-thumbs{position:absolute;right:52px;bottom:-38px;z-index:3;display:flex;gap:16px;opacity:0;animation:riseIn .9s ease .65s forwards;}
+  .hero-thumb{width:220px;background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow-card);overflow:hidden;display:flex;flex-direction:column;text-align:left;transition:transform .2s ease;}
+  .hero-thumb:hover{transform:translateY(-3px);}
+  .hero-thumb img{height:96px;width:100%;object-fit:cover;}
+  .hero-thumb .ht-body{padding:12px 14px 14px;}
+  .hero-thumb .ht-body b{display:block;font-size:13.5px;font-weight:600;margin-bottom:2px;}
+  .hero-thumb .ht-body span{font-size:11.5px;color:var(--ink-soft);}
+  .hero-below{display:flex;justify-content:space-between;align-items:flex-end;margin-top:76px;gap:40px;flex-wrap:wrap;}
+  .hero-below .hero-eyebrow{font-size:13px;color:var(--teal);font-weight:500;margin-bottom:10px;}
+  .hero-below h2{font-size:clamp(24px,2.4vw,32px);max-width:360px;}
+  .hero-below h2 .soft{color:var(--ink-mute);display:block;font-weight:500;}
+  .hero-stats{display:flex;gap:40px;}
+  .hero-stats div b{display:block;font-family:'Poppins',sans-serif;font-size:26px;font-weight:600;}
+  .hero-stats div span{font-size:12.5px;color:var(--ink-soft);}
+  .demo-note{font-size:11px;color:var(--ink-mute);margin-top:6px;}
+  /* ---------- section scaffolding ---------- */
+  section{position:relative;}
+  .section-pad{padding:100px 0;}
+  .section-pad.alt{background:var(--canvas);}
+  .eyebrow{font-size:13px;color:var(--teal);font-weight:500;margin-bottom:14px;letter-spacing:.01em;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:50px;margin-bottom:52px;flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(30px,3.1vw,42px);}
+  .section-head h2 .soft{color:var(--ink-mute);display:block;}
+  .section-head p{font-size:15px;line-height:1.7;color:var(--ink-soft);max-width:340px;}
+  /* ---------- prime locations grid ---------- */
+  .loc-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:110px;gap:14px;}
+  .loc-card{position:relative;border-radius:var(--radius-md);overflow:hidden;display:block;}
+  .loc-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .loc-card:hover img{transform:scale(1.06);}
+  .loc-tag{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,0.94);backdrop-filter:blur(6px);padding:8px 14px;border-radius:999px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:8px;}
+  .loc-tag span{color:var(--ink-soft);font-weight:400;font-size:11.5px;}
+  .loc-1{grid-column:1/6;grid-row:1/4;}
+  .loc-2{grid-column:6/13;grid-row:1/3;}
+  .loc-3{grid-column:6/9;grid-row:3/5;}
+  .loc-4{grid-column:9/13;grid-row:3/5;}
+  /* ---------- property search ---------- */
+  .property-search{background:var(--white);border:1px solid var(--hair);border-radius:var(--radius-md);padding:22px;display:grid;grid-template-columns:1.15fr 0.95fr 0.85fr 0.85fr 0.85fr 1.2fr auto;gap:14px;align-items:end;margin-bottom:30px;box-shadow:var(--shadow-card);}
+  .search-field label{display:block;font-size:11.5px;color:var(--ink-soft);margin-bottom:6px;}
+  .search-field select, .search-field input{width:100%;border:1px solid var(--hair);border-radius:10px;padding:10px 12px;font-size:13.5px;font-family:inherit;background:var(--white);color:var(--ink);}
+  .search-field select:focus, .search-field input:focus{border-color:var(--teal);}
+  .search-actions{display:flex;gap:10px;}
+  .results-count{font-size:13px;color:var(--ink-soft);margin-bottom:22px;}
+  .no-results{text-align:center;padding:56px 20px;color:var(--ink-soft);font-size:14.5px;background:var(--canvas);border-radius:var(--radius-md);}
+  .no-results i{font-size:26px;color:var(--ink-mute);margin-bottom:12px;display:block;}
+  .load-more-row{display:flex;justify-content:center;margin-top:40px;}
+  /* ---------- property grid ---------- */
+  .prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .prop-card{background:var(--white);border:1px solid var(--hair);border-radius:var(--radius-md);overflow:hidden;transition:box-shadow .25s ease, transform .25s ease;}
+  .prop-card:hover{box-shadow:var(--shadow-card);transform:translateY(-3px);}
+  .prop-media{position:relative;height:210px;overflow:hidden;background:var(--canvas);}
+  .prop-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .prop-card:hover .prop-media img{transform:scale(1.06);}
+  .prop-tag-simple{position:absolute;left:14px;top:14px;background:var(--white);padding:7px 13px;border-radius:999px;font-size:11.5px;font-weight:500;}
+  .fav-btn{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.92);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:13px;transition:color .2s ease, transform .2s ease;}
+  .fav-btn:hover{transform:scale(1.08);}
+  .fav-btn[aria-pressed="true"]{color:var(--danger);}
+  .prop-body{padding:20px 20px 22px;}
+  .prop-price{font-family:'Poppins',sans-serif;font-weight:600;font-size:19px;margin-bottom:4px;}
+  .prop-name{font-size:15.5px;font-weight:600;margin-bottom:4px;}
+  .prop-loc{font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:6px;margin-bottom:14px;}
+  .prop-specs{display:flex;gap:14px;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--hair);padding-top:12px;margin-bottom:16px;flex-wrap:wrap;}
+  .prop-specs span{display:flex;align-items:center;gap:5px;}
+  .btn-view-details{display:block;width:100%;text-align:center;padding:11px;border-radius:10px;background:var(--teal-tint);color:var(--teal-deep);font-size:13.5px;font-weight:500;transition:background .2s ease,color .2s ease;}
+  .btn-view-details:hover{background:var(--teal);color:var(--white);}
+  .center-row{display:flex;justify-content:center;margin-top:48px;}
+  /* ---------- about (dark rounded card) ---------- */
+  .about-wrap{padding:0 0 100px;}
+  .about-card{background:var(--navy);border-radius:var(--radius-lg);overflow:hidden;display:grid;grid-template-columns:0.85fr 1fr 0.7fr;}
+  .about-media{position:relative;min-height:520px;}
+  .about-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .about-copy{padding:64px 40px 64px 48px;display:flex;flex-direction:column;justify-content:center;color:var(--white);}
+  .about-copy .eyebrow{color:#7FD9CE;}
+  .about-copy h2{color:var(--white);font-size:clamp(26px,2.6vw,34px);max-width:340px;margin-bottom:18px;}
+  .about-copy p{font-size:14.5px;line-height:1.8;color:rgba(255,255,255,0.6);max-width:360px;margin-bottom:28px;}
+  .about-links{border-left:1px solid rgba(255,255,255,0.1);padding:64px 44px;display:flex;flex-direction:column;gap:4px;justify-content:center;}
+  .about-links a{font-size:14px;color:rgba(255,255,255,0.5);padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;transition:color .2s ease;}
+  .about-links a:last-child{border-bottom:none;}
+  .about-links a:hover{color:rgba(255,255,255,0.85);}
+  .about-links a[aria-current="true"]{color:var(--white);}
+  .about-links a[aria-current="true"] span{width:7px;height:7px;border-radius:50%;background:var(--teal);}
+  /* ---------- why choose us / services ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .why-card{background:var(--white);border:1px solid var(--hair);border-radius:var(--radius-md);overflow:hidden;transition:box-shadow .25s ease, transform .25s ease;}
+  .why-card:hover{box-shadow:var(--shadow-card);transform:translateY(-3px);}
+  .why-media{position:relative;height:132px;}
+  .why-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .why-card:hover .why-media img{transform:scale(1.06);}
+  .why-icon{position:absolute;left:20px;bottom:-20px;width:44px;height:44px;border-radius:50%;background:var(--teal);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 8px 18px -6px rgba(18,134,124,0.55);border:3px solid var(--white);}
+  .why-text{padding:32px 24px 28px;}
+  .why-card h3{font-size:17.5px;font-weight:600;margin-bottom:8px;}
+  .why-card p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);}
+  /* ---------- testimonials ---------- */
+  .test-head{text-align:center;max-width:520px;margin:0 auto 56px;}
+  .test-head h2{font-size:clamp(28px,3vw,38px);}
+  .test-head h2 .soft{color:var(--ink-mute);}
+  .test-head p{font-size:14.5px;color:var(--ink-soft);margin-top:12px;line-height:1.7;}
+  .test-wrap{display:grid;grid-template-columns:1fr 0.7fr;gap:56px;align-items:center;max-width:1000px;margin:0 auto;}
+  .quote-icon{width:46px;height:46px;border-radius:50%;background:var(--teal-tint);color:var(--teal-deep);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:22px;}
+  .stars{color:#D9A441;font-size:13px;letter-spacing:2px;margin-top:18px;}
+  .test-slide p.quote{font-size:19px;line-height:1.65;color:var(--ink);font-weight:400;}
+  .test-name{margin-top:6px;font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;}
+  .test-controls{display:flex;gap:10px;margin-top:26px;}
+  .test-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;transition:.2s;}
+  .test-controls button:hover{border-color:var(--teal);background:var(--teal-tint);}
+  .test-photo{border-radius:var(--radius-md);overflow:hidden;height:340px;box-shadow:var(--shadow-card);}
+  .test-photo img{width:100%;height:100%;object-fit:cover;}
+  /* ---------- blog ---------- */
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .blog-card{background:var(--white);border:1px solid var(--hair);border-radius:var(--radius-md);overflow:hidden;transition:box-shadow .25s ease, transform .25s ease;}
+  .blog-card:hover{box-shadow:var(--shadow-card);transform:translateY(-3px);}
+  .blog-card img{width:100%;height:190px;object-fit:cover;}
+  .blog-body{padding:22px 22px 26px;}
+  .blog-meta{display:flex;gap:12px;align-items:center;font-size:11.5px;color:var(--ink-soft);margin-bottom:12px;}
+  .blog-meta .cat{color:var(--teal);font-weight:500;}
+  .blog-card h3{font-size:17px;font-weight:600;margin-bottom:10px;line-height:1.35;}
+  .blog-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px;}
+  .read-more{font-size:12.5px;color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:6px;}
+  /* ---------- contact ---------- */
+  .contact-card{background:var(--navy);border-radius:var(--radius-lg);padding:70px;display:grid;grid-template-columns:0.6fr 0.75fr 1fr;gap:44px;color:var(--white);}
+  .map-wrap{position:relative;border-radius:var(--radius-md);overflow:hidden;min-height:300px;height:100%;background:var(--canvas);}
+  .map-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .contact-info .eyebrow{color:#7FD9CE;}
+  .contact-info h2{color:var(--white);font-size:clamp(26px,2.8vw,36px);max-width:360px;margin-bottom:16px;}
+  .contact-info p{color:rgba(255,255,255,0.6);font-size:14.5px;line-height:1.8;margin-bottom:30px;max-width:360px;}
+  .contact-row{display:flex;gap:14px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,0.1);}
+  .contact-row:last-of-type{border-bottom:1px solid rgba(255,255,255,0.1);}
+  .contact-row a.crow-link{display:block;}
+  .contact-row a.crow-link:hover b{color:#7FD9CE;}
+  .contact-row .ic{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0;}
+  .contact-row b{display:block;font-size:14px;font-weight:500;transition:color .2s;}
+  .contact-row span{font-size:12.5px;color:rgba(255,255,255,0.5);}
+  .contact-form{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:32px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .field label{display:block;font-size:11.5px;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+  .field input, .field select, .field textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:11px 14px;color:var(--white);font-family:'Inter',sans-serif;font-size:14px;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--teal);}
+  .field textarea{resize:none;height:64px;}
+  .field input::placeholder, .field textarea::placeholder{color:rgba(255,255,255,0.32);}
+  .field.has-error input, .field.has-error select, .field.has-error textarea{border-color:var(--danger);}
+  .field-error-msg{color:#F5A896;font-size:11.5px;margin-top:6px;display:none;}
+  .field.has-error .field-error-msg{display:block;}
+  .contact-form .pill{margin-top:6px;width:100%;justify-content:center;}
+  .whatsapp-note{display:flex;align-items:center;gap:9px;margin-top:16px;font-size:12.5px;color:rgba(255,255,255,0.6);}
+  .whatsapp-note button{color:#2FBF71;font-weight:500;text-decoration:underline;}
+  .form-success{background:rgba(18,134,124,0.18);border:1px solid rgba(127,217,206,0.3);color:#CFEFEA;padding:14px 16px;border-radius:10px;font-size:13px;margin-top:14px;display:flex;align-items:center;gap:10px;}
+  /* ---------- footer ---------- */
+  footer{padding:80px 0 0;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 0.8fr 0.8fr 1fr;gap:40px;padding-bottom:40px;}
+  .footer-logo{font-family:'Poppins',sans-serif;font-weight:600;font-size:20px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+  .footer-grid p{font-size:13.5px;line-height:1.8;color:var(--ink-soft);max-width:270px;margin-bottom:20px;}
+  .footer-col h4{font-size:12.5px;color:var(--ink);margin-bottom:18px;font-weight:600;}
+  .footer-col a, .footer-col button.footer-link{display:block;font-size:13.5px;margin-bottom:11px;color:var(--ink-soft);transition:color .2s;text-align:left;}
+  .footer-col a:hover, .footer-col button.footer-link:hover{color:var(--ink);}
+  .footer-newsletter{position:relative;}
+  .footer-newsletter-row{display:flex;background:var(--canvas);border-radius:999px;padding:5px 5px 5px 18px;margin-top:6px;align-items:center;}
+  .footer-newsletter-row input{background:transparent;border:none;font-size:13px;flex:1;color:var(--ink);}
+  .footer-newsletter-row button{background:var(--teal);color:var(--white);padding:9px 18px;border-radius:999px;font-size:12.5px;flex-shrink:0;}
+  .footer-newsletter-row button:disabled{opacity:.6;}
+  .newsletter-msg{font-size:12px;margin-top:8px;display:none;}
+  .newsletter-msg.show{display:block;}
+  .newsletter-msg.success{color:var(--teal-deep);}
+  .newsletter-msg.error{color:var(--danger);}
+  .footer-gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:28px 0;border-top:1px solid var(--hair);}
+  .footer-gallery img{width:100%;height:64px;object-fit:cover;border-radius:10px;opacity:.9;transition:opacity .2s ease, transform .2s ease;}
+  .footer-gallery img:hover{opacity:1;transform:translateY(-2px);}
+  .footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:24px 0;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--hair);flex-wrap:wrap;gap:14px;}
+  .footer-socials{display:flex;gap:12px;}
+  .footer-socials button{width:36px;height:36px;border-radius:50%;border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;transition:.2s;}
+  .footer-socials button:hover{background:var(--teal);border-color:var(--teal);color:var(--white);}
+  /* ---------- modal system ---------- */
+  .modal-overlay{position:fixed;inset:0;background:rgba(15,18,20,0.6);backdrop-filter:blur(3px);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s ease;}
+  .modal-overlay.open{opacity:1;pointer-events:auto;}
+  .modal-box{background:var(--white);border-radius:var(--radius-md);max-width:760px;width:100%;max-height:88vh;overflow-y:auto;position:relative;padding:40px;transform:translateY(16px);transition:transform .25s ease;box-shadow:0 40px 90px -30px rgba(0,0,0,0.4);}
+  .modal-overlay.open .modal-box{transform:translateY(0);}
+  .modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:var(--canvas);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink);transition:.2s;}
+  .modal-close:hover{background:var(--hair);}
+  .modal-eyebrow{font-size:12.5px;color:var(--teal);font-weight:500;margin-bottom:8px;}
+  .modal-box h2{font-size:26px;margin-bottom:4px;}
+  .pm-loc{font-size:13.5px;color:var(--ink-soft);margin-bottom:20px;display:flex;align-items:center;gap:6px;}
+  .pm-gallery-main{border-radius:var(--radius-sm);overflow:hidden;height:320px;margin-bottom:12px;background:var(--canvas);}
+  .pm-gallery-main img{width:100%;height:100%;object-fit:cover;}
+  .pm-gallery-thumbs{display:flex;gap:10px;margin-bottom:24px;}
+  .pm-gallery-thumbs button{padding:0;border-radius:8px;overflow:hidden;width:76px;height:56px;opacity:.6;transition:opacity .2s;}
+  .pm-gallery-thumbs button.active, .pm-gallery-thumbs button:hover{opacity:1;}
+  .pm-gallery-thumbs img{width:100%;height:100%;object-fit:cover;}
+  .pm-price{font-family:'Poppins',sans-serif;font-size:22px;font-weight:600;margin-bottom:16px;}
+  .pm-specs-row{display:flex;gap:20px;flex-wrap:wrap;margin:8px 0 18px;padding:16px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);font-size:13.5px;color:var(--ink-soft);}
+  .pm-specs-row span{display:flex;align-items:center;gap:6px;}
+  .pm-desc{font-size:14px;line-height:1.75;color:var(--ink-soft);margin-bottom:18px;}
+  .pm-amenities{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;}
+  .pm-amenities span{background:var(--teal-tint);color:var(--teal-deep);font-size:12.5px;padding:7px 13px;border-radius:999px;}
+  .pm-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .pm-actions .pill{flex:1;justify-content:center;min-width:170px;}
+  .legal-body{font-size:13.5px;line-height:1.8;color:var(--ink-soft);}
+  .legal-body p{margin-bottom:14px;}
+  .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;}
+  .team-member{text-align:center;}
+  .team-member img{width:100%;height:140px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:10px;}
+  .team-member b{display:block;font-size:14px;}
+  .team-member span{font-size:12px;color:var(--ink-soft);}
+  /* ---------- toast ---------- */
+  #toastRoot{position:fixed;bottom:24px;right:24px;z-index:600;display:flex;flex-direction:column;gap:10px;max-width:320px;}
+  .toast{background:var(--navy);color:var(--white);padding:14px 18px;border-radius:12px;font-size:13.5px;box-shadow:var(--shadow-card);display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(10px);transition:opacity .25s ease, transform .25s ease;}
+  .toast.show{opacity:1;transform:translateY(0);}
+  .toast.error{background:#7A2C26;}
+  .toast i{color:#7FD9CE;flex-shrink:0;}
+  .toast.error i{color:#F5A896;}
+  .img-fallback{object-fit:cover;background:linear-gradient(135deg, var(--teal-tint), var(--canvas));}
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px){
+    .container{padding:0 20px;}
+    nav.primary-nav{display:none;}
+    .nav-toggle{display:flex;}
+    .hero-card{height:auto;min-height:520px;}
+    .hero-thumbs{display:none;}
+    .hero-content{left:24px;right:24px;bottom:34px;}
+    .hero-progress{left:24px;bottom:auto;top:24px;}
+    .hero-below{flex-direction:column;align-items:flex-start;gap:24px;margin-top:40px;}
+    .section-pad{padding:64px 0;}
+    .section-head{flex-direction:column;align-items:flex-start;gap:16px;}
+    .loc-grid{grid-template-columns:1fr;grid-auto-rows:220px;}
+    .loc-1,.loc-2,.loc-3,.loc-4{grid-column:1/2;grid-row:auto;}
+    .property-search{grid-template-columns:1fr 1fr;}
+    .search-actions{grid-column:1/3;}
+    .prop-grid{grid-template-columns:1fr;}
+    .about-card{grid-template-columns:1fr;}
+    .about-media{min-height:260px;}
+    .about-links{border-left:none;border-top:1px solid rgba(255,255,255,0.1);padding:32px 32px;}
+    .about-copy{padding:40px 32px 20px;}
+    .why-grid{grid-template-columns:1fr 1fr;}
+    .test-wrap{grid-template-columns:1fr;}
+    .test-photo{order:-1;height:220px;}
+    .blog-grid{grid-template-columns:1fr;}
+    .contact-card{grid-template-columns:1fr;padding:36px 24px;}
+    .map-wrap{min-height:220px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .footer-gallery{grid-template-columns:repeat(3,1fr);}
+    .modal-box{padding:26px;}
+  }
+  @media (max-width: 480px){
+    .container{padding:0 16px;}
+    .hero-content h1{font-size:32px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .footer-gallery{grid-template-columns:repeat(3,1fr);}
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header id="siteHeader">
+  <div class="container">
+    <a href="#home" class="logo"><span class="mark" aria-hidden="true"></span><span id="companyNameHeader">Elite Estates</span></a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="#home" data-nav-link="home">Home</a>
+      <a href="#properties" data-nav-link="properties">Properties</a>
+      <a href="#about" data-nav-link="about">About</a>
+      <a href="#services" data-nav-link="services">Why Choose Us</a>
+      <a href="#testimonials" data-nav-link="testimonials">Testimonials</a>
+      <a href="#blog" data-nav-link="blog">Blog</a>
+      <a href="#contact" data-nav-link="contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <button class="fav-nav-btn" id="favNavBtn" aria-label="View saved favorite properties" aria-haspopup="dialog">
+        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+        <span class="fav-count" id="favCount" aria-hidden="true">0</span>
+      </button>
+      <a href="#contact" class="pill pill-solid">Get Started Now<span class="circ" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div id="mobileNav" aria-hidden="true">
+  <button class="mnav-close" id="mnavClose" aria-label="Close menu">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <a href="#home" data-nav-link="home">Home</a>
+  <a href="#properties" data-nav-link="properties">Properties</a>
+  <a href="#about" data-nav-link="about">About</a>
+  <a href="#services" data-nav-link="services">Why Choose Us</a>
+  <a href="#testimonials" data-nav-link="testimonials">Testimonials</a>
+  <a href="#blog" data-nav-link="blog">Blog</a>
+  <a href="#contact" data-nav-link="contact">Contact</a>
+</div>
+<main id="main-content">
+<!-- ============ HERO ============ -->
+<section class="hero-section container" id="home">
+  <div class="hero-card">
+    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=80" width="1400" height="640" alt="Modern luxury residence at dusk with warm interior lighting" loading="eager" fetchpriority="high">
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-progress"><span aria-hidden="true">01</span><div class="bar"><span></span></div></div>
+    <div class="hero-content">
+      <h1 id="heroTitle">Find your dream<br>home with us</h1>
+      <p id="heroSubtitle">Discover exceptional properties in prime locations, carefully selected for modern living and long-term value.</p>
+      <a href="#properties" class="pill pill-light">Learn More<span class="circ" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span></a>
+    </div>
+    <div class="hero-thumbs">
+      <button type="button" class="hero-thumb" data-scroll-to="properties">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" width="400" height="96" alt="" loading="lazy">
+        <span class="ht-body"><b>Discover Premium Properties</b><span>Property Buying</span></span>
+      </button>
+      <button type="button" class="hero-thumb" data-scroll-to="properties">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=80" width="400" height="96" alt="" loading="lazy">
+        <span class="ht-body"><b>Luxury Living Starts Here</b><span>Property Renting</span></span>
+      </button>
+    </div>
+  </div>
+  <div class="hero-below">
+    <div>
+      <div class="hero-eyebrow">Elite Estates Advisory</div>
+      <h2>Browse our handpicked selection<span class="soft"> of homes and prime addresses</span></h2>
+    </div>
+    <div>
+      <div class="hero-stats">
+        <div><b>9</b><span>Active Listings</span></div>
+        <div><b>8</b><span>Cities Covered</span></div>
+        <div><b id="favCountStat">0</b><span>Saved by You</span></div>
+      </div>
+      <p class="demo-note">Figures reflect this demo catalog, not a live business metric.</p>
+    </div>
+  </div>
+</section>
+<!-- ============ PRIME LOCATIONS ============ -->
+<section class="section-pad" id="locations">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Prime Locations</div>
+        <h2>Perfect Homes<span class="soft" style="display:block;">in places worth living</span></h2>
+      </div>
+      <div>
+        <p>Discover exclusive properties in the most sought-after locations, tailored to fit your lifestyle and needs.</p>
+        <a href="#properties" class="pill pill-outline" style="margin-top:18px;">View Properties<span class="circ" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span></a>
+      </div>
+    </div>
+    <div class="loc-grid">
+      <button type="button" class="loc-card loc-1" data-filter-location="Alibaug">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80" width="900" height="500" alt="Modern villa exterior in Alibaug" loading="lazy">
+        <span class="loc-tag">Alibaug <span>· view listings</span></span>
+      </button>
+      <button type="button" class="loc-card loc-2" data-filter-location="Mumbai">
+        <img src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=1000&q=80" width="1000" height="400" alt="Mumbai skyline" loading="lazy">
+        <span class="loc-tag">Mumbai <span>· view listings</span></span>
+      </button>
+      <button type="button" class="loc-card loc-3" data-filter-location="Bangalore">
+        <img src="https://images.unsplash.com/photo-1580216643062-cf460548a66a?auto=format&fit=crop&w=600&q=80" width="600" height="400" alt="Bangalore cityscape" loading="lazy">
+        <span class="loc-tag">Bangalore <span>· view listings</span></span>
+      </button>
+      <button type="button" class="loc-card loc-4" data-filter-location="Dubai">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" width="600" height="400" alt="Dubai skyline" loading="lazy">
+        <span class="loc-tag">Dubai <span>· view listings</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- ============ PROPERTIES ============ -->
+<section class="section-pad alt" id="properties">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Featured Listings</div>
+        <h2>Your Dream Property<span class="soft" style="display:block;">Awaits</span></h2>
+      </div>
+      <p>Search our handpicked selection of homes, apartments, and commercial properties in prime locations.</p>
+    </div>
+    <form class="property-search" id="propertySearchForm" aria-label="Search properties">
+      <div class="search-field">
+        <label for="searchLocation">Location</label>
+        <select id="searchLocation" name="location">
+          <option value="">Any location</option>
+          <option value="Newton">Newton</option>
+          <option value="Alibaug">Alibaug</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Dubai">Dubai</option>
+          <option value="Pune">Pune</option>
+          <option value="Goa">Goa</option>
+          <option value="Hyderabad">Hyderabad</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="searchType">Property Type</label>
+        <select id="searchType" name="type">
+          <option value="">Any type</option>
+          <option value="Villa">Villa</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Penthouse">Penthouse</option>
+          <option value="Commercial">Commercial</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="searchMinPrice">Min Price</label>
+        <input type="number" id="searchMinPrice" name="minPrice" min="0" step="1000" inputmode="numeric" placeholder="No min">
+      </div>
+      <div class="search-field">
+        <label for="searchMaxPrice">Max Price</label>
+        <input type="number" id="searchMaxPrice" name="maxPrice" min="0" step="1000" inputmode="numeric" placeholder="No max">
+      </div>
+      <div class="search-field">
+        <label for="searchBeds">Bedrooms</label>
+        <select id="searchBeds" name="beds">
+          <option value="">Any</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="searchKeyword">Keyword</label>
+        <input type="text" id="searchKeyword" name="keyword" placeholder="Search by name or place">
+      </div>
+      <div class="search-actions">
+        <button type="submit" class="pill pill-solid">Search<span class="circ" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span></button>
+        <button type="button" id="resetFiltersBtn" class="pill pill-outline">Reset<span class="circ" aria-hidden="true"><i class="fa-solid fa-rotate-left"></i></span></button>
+      </div>
+    </form>
+    <p class="results-count" id="resultsCount" role="status" aria-live="polite"></p>
+    <div class="prop-grid" id="propertyGrid"></div>
+    <div class="no-results" id="noResultsMsg" hidden>
+      <i class="fa-regular fa-face-frown" aria-hidden="true"></i>
+      No properties match your filters. Try adjusting your search.
+    </div>
+    <div class="load-more-row">
+      <button type="button" class="pill pill-outline" id="loadMoreBtn">See More<span class="circ" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span></button>
+    </div>
+  </div>
+</section>
+<!-- ============ ABOUT ============ -->
+<section class="about-wrap section-pad" id="about" style="padding-top:0;">
+  <div class="container">
+    <div class="about-card">
+      <div class="about-media">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" width="800" height="900" alt="Elite Estates featured property with glass facade" loading="lazy">
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow">Discover More</div>
+        <h2>About us</h2>
+        <p id="aboutText">We are your partners in finding the right home or investment. This is a demo advisory profile — copy below is placeholder content, not a real company history.</p>
+        <p style="font-size:13px;">Elite Estates connects buyers, renters, and investors with a curated catalog of properties, backed by clear pricing information and responsive support.</p>
+        <a href="#contact" class="pill pill-solid" style="width:fit-content;">Talk To Us<span class="circ" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span></a>
+      </div>
+      <nav class="about-links" aria-label="About Elite Estates">
+        <button type="button" class="footer-link" data-open-team>Meet The Team</button>
+        <a href="#services">Our Expertise</a>
+        <a href="#services">Our Services</a>
+        <a href="#about" aria-current="true">Who We Are <span aria-hidden="true"></span></a>
+        <a href="#properties">Top Properties</a>
+        <a href="#testimonials">Community</a>
+      </nav>
+    </div>
+  </div>
+</section>
+<!-- ============ SERVICES / WHY CHOOSE US ============ -->
+<section class="section-pad alt" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Why Choose Us</div>
+        <h2>What working with us<span class="soft" style="display:block;">actually looks like</span></h2>
+      </div>
+      <p>Four commitments we hold ourselves to on every engagement, regardless of budget or property size.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-media">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=500&q=80" width="500" height="270" alt="Inspected modern home exterior" loading="lazy">
+          <div class="why-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+        </div>
+        <div class="why-text">
+          <h3>Verified Properties</h3>
+          <p>Every listing in this catalog is presented with consistent, checked details before it's published.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-media">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=500&q=80" width="500" height="270" alt="Advisor meeting with clients" loading="lazy">
+          <div class="why-icon" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></div>
+        </div>
+        <div class="why-text">
+          <h3>Expert Guidance</h3>
+          <p>Dedicated advisors who know the neighbourhood, the paperwork, and the negotiation.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-media">
+          <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=500&q=80" width="500" height="270" alt="City skyline at golden hour" loading="lazy">
+          <div class="why-icon" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></div>
+        </div>
+        <div class="why-text">
+          <h3>Prime Locations</h3>
+          <p>We only feature addresses in areas with genuine long-term value, not just curb appeal.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-media">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80" width="500" height="270" alt="Agent handing over keys" loading="lazy">
+          <div class="why-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
+        </div>
+        <div class="why-text">
+          <h3>Personalized Service</h3>
+          <p>A single point of contact from first inquiry through to keys in hand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section-pad" id="testimonials" aria-roledescription="carousel" aria-label="Customer testimonials">
+  <div class="container">
+    <div class="test-head">
+      <div class="eyebrow" style="display:flex;justify-content:center;">Testimonials</div>
+      <h2>Hear from Our<span class="soft"> Happy Homeowners</span></h2>
+      <p>Demo testimonials for illustration — replace with real, verified client reviews before publishing.</p>
+    </div>
+    <div class="test-wrap">
+      <div>
+        <div class="quote-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="test-slide" id="testSlide" aria-live="polite">
+          <p class="quote"></p>
+          <div class="stars" aria-hidden="true"></div>
+          <p class="test-name"></p>
+        </div>
+        <div class="test-controls">
+          <button type="button" id="testPrev" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+          <button type="button" id="testNext" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="test-photo">
+        <img id="testPhoto" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" width="500" height="340" alt="" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ BLOG ============ -->
+<section class="section-pad alt" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">From the Journal</div>
+        <h2>Notes on markets<span class="soft" style="display:block;">and modern living</span></h2>
+      </div>
+      <p>Demo articles included for layout purposes — swap in real posts before launch.</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</section>
+<!-- ============ CONTACT ============ -->
+<section class="section-pad" id="contact" style="padding-top:0;">
+  <div class="container">
+    <div class="contact-card">
+      <div class="map-wrap">
+        <iframe id="officeMapIframe" title="Elite Estates office location (demo address)" loading="lazy" src="https://www.google.com/maps?q=44+Harbor+View+Road%2C+Demo+City&output=embed"></iframe>
+      </div>
+      <div class="contact-info">
+        <div class="eyebrow">Get In Touch</div>
+        <h2>Let's find your next address</h2>
+        <p>Tell us what you're looking for. This demo form stores your message locally and is structured for a real backend to be connected later.</p>
+        <div class="contact-row">
+          <div class="ic" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
+          <a class="crow-link" id="contactPhoneLink" href="tel:+14155550148"><b>Call us</b><span id="contactPhoneText">+1 (415) 555-0148</span></a>
+        </div>
+        <div class="contact-row">
+          <div class="ic" aria-hidden="true"><i class="fa-solid fa-envelope"></i></div>
+          <a class="crow-link" id="contactEmailLink" href="mailto:hello@eliteestates.com"><b>Email us</b><span id="contactEmailText">hello@eliteestates.com</span></a>
+        </div>
+        <div class="contact-row">
+          <div class="ic" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+          <div><b>Visit our office</b><span id="contactAddressText">44 Harbor View Road, Suite 300 (demo address)</span></div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <h2 class="visually-hidden">Contact form</h2>
+        <div class="form-row">
+          <div class="field" id="cf-name-field">
+            <label for="cf-name">Full Name *</label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name">
+            <span class="field-error-msg" id="cf-name-error">Please enter your name.</span>
+          </div>
+          <div class="field" id="cf-phone-field">
+            <label for="cf-phone">Phone</label>
+            <input type="tel" id="cf-phone" name="phone" placeholder="+1 000 000 0000" autocomplete="tel">
+            <span class="field-error-msg" id="cf-phone-error">Please enter a valid phone number.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field" id="cf-email-field">
+            <label for="cf-email">Email *</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email">
+            <span class="field-error-msg" id="cf-email-error">Please enter a valid email address.</span>
+          </div>
+          <div class="field">
+            <label for="cf-subject">Property Interested In</label>
+            <select id="cf-subject" name="subject">
+              <option value="General enquiry">General enquiry</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" id="cf-message-field" style="margin-bottom:18px;">
+          <label for="cf-message">Message *</label>
+          <textarea id="cf-message" name="message" required placeholder="Tell us a little about what you're looking for..."></textarea>
+          <span class="field-error-msg" id="cf-message-error">Please enter a short message.</span>
+        </div>
+        <button class="pill pill-solid" type="submit" id="cf-submit">Send Inquiry<span class="circ" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span></button>
+        <div id="cf-success" class="form-success" hidden role="status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span></span></div>
+        <div class="whatsapp-note"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Prefer WhatsApp? <button type="button" id="whatsappGeneral">Message us directly</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="mark" style="width:9px;height:9px;border-radius:50%;background:#12867C;display:inline-block;" aria-hidden="true"></span><span id="companyNameFooter">Elite Estates</span></div>
+        <p id="footerDescText">A demo real estate platform template representing residential and commercial properties across several cities.</p>
+        <form class="footer-newsletter" id="newsletterForm">
+          <label for="newsletterEmail" class="visually-hidden">Email address for newsletter</label>
+          <div class="footer-newsletter-row">
+            <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email address" required>
+            <button type="submit" id="newsletterSubmit">Subscribe</button>
+          </div>
+          <p class="newsletter-msg" id="newsletterMsg" role="status"></p>
+        </form>
+      </div>
+      <nav class="footer-col" aria-label="Navigation">
+        <h4>Navigation</h4>
+        <a href="#home">Home</a>
+        <a href="#properties">Properties</a>
+        <a href="#about">About Us</a>
+        <a href="#blog">Blog</a>
+      </nav>
+      <nav class="footer-col" aria-label="Property types">
+        <h4>Property Types</h4>
+        <button type="button" class="footer-link" data-filter-type="Villa">Villas</button>
+        <button type="button" class="footer-link" data-filter-type="Apartment">Apartments</button>
+        <button type="button" class="footer-link" data-filter-type="Penthouse">Penthouses</button>
+        <button type="button" class="footer-link" data-filter-type="Commercial">Commercial</button>
+      </nav>
+      <nav class="footer-col" aria-label="Locations">
+        <h4>Locations</h4>
+        <button type="button" class="footer-link" data-filter-location="Mumbai">Mumbai</button>
+        <button type="button" class="footer-link" data-filter-location="Bangalore">Bangalore</button>
+        <button type="button" class="footer-link" data-filter-location="Dubai">Dubai</button>
+        <button type="button" class="footer-link" data-filter-location="Goa">Goa</button>
+      </nav>
+    </div>
+    <div class="footer-gallery" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=200&q=60" width="200" height="64" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=200&q=60" width="200" height="64" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=200&q=60" width="200" height="64" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=200&q=60" width="200" height="64" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=200&q=60" width="200" height="64" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=200&q=60" width="200" height="64" alt="" loading="lazy">
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <span>© <span id="footerYear">2026</span> Elite Estates. Demo template — all rights reserved.</span>
+        <button type="button" class="footer-link" data-open-legal="privacy" style="display:inline;margin:0;">Privacy Policy</button>
+        <button type="button" class="footer-link" data-open-legal="terms" style="display:inline;margin:0;">Terms &amp; Conditions</button>
+      </div>
+      <div class="footer-socials">
+        <button type="button" data-social="instagram" aria-label="Elite Estates on Instagram (not yet connected)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></button>
+        <button type="button" data-social="linkedin" aria-label="Elite Estates on LinkedIn (not yet connected)"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></button>
+        <button type="button" data-social="facebook" aria-label="Elite Estates on Facebook (not yet connected)"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></button>
+        <button type="button" data-social="youtube" id="youtubeSocialBtn" hidden aria-label="Elite Estates on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL ROOT ============ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitleLabel" hidden>
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close dialog"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<div id="toastRoot" aria-live="polite"></div>
+
+<script type="module" src="/src/public/main.js"></script>
+
+</body>
+</html>
