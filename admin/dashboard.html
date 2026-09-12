@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin Dashboard — Elite Estates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/src/styles/admin.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar" id="adminSidebar" aria-label="Admin navigation">
+    <div class="admin-logo"><span class="mark"></span>Elite Estates</div>
+    <button class="admin-nav-link" data-section="overview"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Overview</button>
+    <button class="admin-nav-link" data-section="properties"><i class="fa-solid fa-house" aria-hidden="true"></i> Properties</button>
+    <button class="admin-nav-link" data-section="inquiries"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Inquiries</button>
+    <button class="admin-nav-link" data-section="appointments"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Appointments</button>
+    <button class="admin-nav-link" data-section="testimonials"><i class="fa-solid fa-quote-left" aria-hidden="true"></i> Testimonials</button>
+    <button class="admin-nav-link" data-section="blog"><i class="fa-solid fa-newspaper" aria-hidden="true"></i> Blog</button>
+    <button class="admin-nav-link" data-section="newsletter"><i class="fa-solid fa-at" aria-hidden="true"></i> Newsletter</button>
+    <button class="admin-nav-link" data-section="settings"><i class="fa-solid fa-gear" aria-hidden="true"></i> Website Settings</button>
+    <div class="admin-sidebar-footer">
+      <button class="admin-nav-link" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Logout</button>
+    </div>
+  </aside>
+
+  <div class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="adminSidebar">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <h1 id="pageTitle">Overview</h1>
+      </div>
+      <div class="admin-user">
+        <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+        <span id="adminEmailLabel">Loading…</span>
+      </div>
+    </div>
+    <div class="admin-content" id="adminContent" ari
